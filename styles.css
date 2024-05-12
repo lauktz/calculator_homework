@@ -1,77 +1,87 @@
-#body{
+body {
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: hsl(0, 0%, 95%);
-
-}
-#calculator{
-    font-family: Arial, sans-serif;
+    /* אפשר לשנות את צבע הרקע כדי ליצור רקע לבן
+     370pxאבל זה לא טוב במסך מתחת ל */
     background-color: hsl(0, 0%, 15%);
-    border-radius: 15px;
-    max-width: 500px;
-    overflow: hidden;
-
 }
-#result{
+
+#calculator {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: hsl(0, 0%, 15%);
+    border-radius: 20px;
+    max-width: 400px;
     width: 100%;
-    padding: 20px;
-    font-size: 5rem;
-    text-align: left;
-    border: none;
-    background-color: hsl(0, 0%, 20%);
-    color: white;
-
-
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    /* overflow: hidden; */
 }
-#keys{
+
+#result {
+    width: 90%;
+    padding: 20px;
+    font-size: 4rem;
+    text-align: right;
+    border: none;
+    border-radius: 20px 20px 0 0;
+    background-color: hsl(0, 0%, 15%);
+    color: white;
+}
+
+#keys {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
-    padding: 25px;
+    padding: 15px;
 }
-button{
-    width: 100px;
-    height: 100px;
+
+button {
+    width: 80px;
+    height: 80px;
     border-radius: 50px;
     border: none;
     background-color: hsl(0, 0%, 30%);
     color: white;
-    font-size: 3rem;
-    font-weight: bold;
+    font-size: 2rem;
+    font-weight: normal;
     cursor: pointer;
 }
-button:hover{
+
+button:hover {
     background-color: hsl(0, 0%, 40%);
-
 }
-button:active{
+
+button:active {
     background-color: hsl(0, 0%, 50%);
-
 }
-.operator-btn{
+
+.operator-btn {
     background-color: hsl(35, 100%, 55%);
 }
-.operator-btn:hover{
+
+.operator-btn:hover {
     background-color: hsl(35, 100%, 65%);
 }
-.operator-btn:active{
+
+.operator-btn:active {
     background-color: hsl(35, 100%, 75%);
 }
-.other-operator-btn{
-    background-color:hsl(0, 0%, 55%);
+
+.other-operator-btn {
+    background-color: hsl(0, 0%, 55%);
 }
-.other-operator-btn:hover{
+
+.other-operator-btn:hover {
     background-color: hsl(0, 0%, 65%);
 }
-.other-operator-btn:active{
+
+.other-operator-btn:active {
     background-color: hsl(0, 0%, 75%);
 }
 
-
 .zero-button {
-    width: 200px; /* Twice as broad as other number buttons */
-    grid-column: span 2; /* Takes up two columns */
+    width: 100%;
+    grid-column: span 2;
 }
