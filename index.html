@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="calculator">
+        <input id="result" readonly>
+        <div id="keys">
+            <button onclick="clearResult()"class="other-operator-btn">AC</button>
+            <button onclick="positiveNegative()"class="other-operator-btn">±</button>
+            <button onclick="percent()"class="other-operator-btn">%</button>
+            <button onclick="performOperation('/')" class="operator-btn">÷</button>
+            <button onclick="displayNum(7)">7</button>
+            <button onclick="displayNum(8)">8</button>
+            <button onclick="displayNum(9)">9</button>
+            <button onclick="performOperation('*')" class="operator-btn">*</button>
+            <button onclick="displayNum(4)">4</button>
+            <button onclick="displayNum(5)">5</button>
+            <button onclick="displayNum(6)">6</button>
+            <button onclick="performOperation('-')" class="operator-btn">-</button>
+            <button onclick="displayNum(1)">1</button>
+            <button onclick="displayNum(2)">2</button>
+            <button onclick="displayNum(3)">3</button>
+            <button onclick="performOperation('+')" class="operator-btn">+</button>
+            <!-- <button onclick="displayNum(0)">0</button> -->
+            <button class="button zero-button" onclick="displayNum(0)">0</button>
+            <button onclick="floatPoint()">.</button>
+            <button onclick="equalResult()"class="operator-btn">=</button>
+
+        </div>
+    </div>
+ 
+    <script>
+        let memory = 0;
+        let action = "=";
+    
+        function displayNum(num) {
+          if (result.value === "0") {
+            result.value = num;
+          } else {
+            result.value += num;
+          }
+        }
+    
+        function clearResult() {
+          result.value = "0";
+        }
+    
+        function performOperation(operator) {
+          let currentValue = Number(result.value);
+    
+          switch (action) {
+            case "+":
+              memory += currentValue;
+              break;
+            case "-":
+              memory -= currentValue;
+              break;
+            case "*":
+              memory *= currentValue;
+              break;
+            case "/":
+              memory /= currentValue;
+              break;
+            default:
+              memory = currentValue;
+          }
+    
+          action = operator;
+          result.value = "0";
+          console.log("memory =", memory);
+        }
+    
+        function equalResult() {
+          let currentValue = Number(result.value);
+    
+          switch (action) {
+            case "+":
+              memory += currentValue;
+              break;
+            case "-":
+              memory -= currentValue;
+              break;
+            case "*":
+              memory *= currentValue;
+              break;
+            case "/":
+              memory /= currentValue;
+              break;
+            default:
+              memory = currentValue;
+          }
+    
+          action = "=";
+          result.value = memory;
+          console.log("memory =", memory);
+        }
+    
+        function positiveNegative() {
+          if (result.value > 0) {
+            result.value = -1 * result.value;
+          } else if (result.value < 0) {
+            result.value = Math.abs(result.value);
+          }
+        }
+    
+        function percent() {
+            result.value = result.value / 100
+            
+        }
+    
+        function floatPoint() {
+            if (!result.value.includes('.')) {
+            result.value += '.';
+        }
+    }
+    
+    
+      </script>
+</body>
+</html>
